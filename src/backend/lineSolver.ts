@@ -95,6 +95,20 @@ const internalSolveLine = (input: SolveInput): Line => {
     return input.line;
 };
 
+export const stringToLine = (s: string): Line => {
+    const line: Line = [];
+    for (const c of s) {
+        if (c === UNKNOWN || c === FILLED || c === EMPTY) {
+            line.push(c as State);
+        } else {
+            throw new Error(`Invalid character '${c}' in line '${s}'`);
+        }
+    }
+    return line;
+};
+
+export const lineToString = (line: Line): string => line.join("");
+
 export const solveLine = (input: SolveInput): SolveResult => {
     const inputCopy = {
         line: [...input.line],
@@ -114,17 +128,3 @@ export const solveLine = (input: SolveInput): SolveResult => {
         changed
     };
 };
-
-export const stringToLine = (s: string): Line => {
-    const line: Line = [];
-    for (const c of s) {
-        if (c === UNKNOWN || c === FILLED || c === EMPTY) {
-            line.push(c as State);
-        } else {
-            throw new Error(`Invalid character '${c}' in line '${s}'`);
-        }
-    }
-    return line;
-};
-
-export const lineToString = (line: Line): string => line.join("");
