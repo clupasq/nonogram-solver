@@ -38,4 +38,22 @@ describe("lineSolver", () => {
         });
     });
 
+    it("Takes into acount existing state", () => {
+        expect(solveLine({
+            line: stringToLine("? ?????? ?"),
+            hints: [6]
+        })).toMatchObject({
+            line: stringToLine("  ██████  "),
+            changed: [0, 2, 3, 4, 5, 6, 7, 9]
+        });
+
+        expect(solveLine({
+            line: stringToLine("? ?????? ?"),
+            hints: [5]
+        })).toMatchObject({
+            line: stringToLine("  ?████?  "),
+            changed: [0, 3, 4, 5, 6, 9]
+        });
+    });
+
 });
