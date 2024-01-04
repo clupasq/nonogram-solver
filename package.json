@@ -2,11 +2,12 @@
     "name": "nonogram-solver",
     "version": "0.1.0",
     "description": "Solver for Nonogram Puzzles",
-    "main": "index.js",
+    "main": "src/index.js",
     "scripts": {
         "compile": "tsc -b .",
         "test": "jest",
-        "test:watch": "jest --watch"
+        "test:watch": "jest --watch",
+        "start": "node src/index.js"
     },
     "keywords": [
         "nonogram",
